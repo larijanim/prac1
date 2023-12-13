@@ -71,8 +71,8 @@ const GitForm=()=>{
     <div><form>
         <input value={param} onChange={onInputChange}/><button type='submit' onClick={onButtonClick}>search</button></form>
       <GitCard data={data} handleFollowers={handleFollowers} />
-       
-        { folo!==null && folo?.map((item,index)=>(<div className="folocontainer" key={index} onClick={() => handleFollowerDivClick(item)}> 
-            <GitCard data={item} handleFollowers={handleFollowers} /></div>))}
+      <div className="folocontainer">
+        { folo!==null && folo?.map((item,index)=>(<div className='item'  key={index} onClick={() => handleFollowerDivClick(item)}> 
+            <GitCard data={item} handleFollowers={handleFollowers} /></div>))}</div>
         </div>)}
 export default GitForm;

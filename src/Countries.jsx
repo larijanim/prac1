@@ -28,23 +28,27 @@ const Countries=()=>{
       );
 
 
-const fetchdata=async()=>{
+const fetchdata=async(iscancel)=>{
     try{
         const response=await fetch('https://restcountries.com/v3.1/all');
         const result=await response.json();
         console.log(result);
         const dataObj=result.map((r)=>{return {name:r.name.common,flag:r.flags.png,region:r.region}})
+        if(iscancel){
         setData(dataObj);
-       
+    }
     }
     catch(error){
    console.error('wdasscasca',error)
     }
 }
     useEffect(()=>{
-
-    fetchdata();
-
+  let isCancelled=false;
+    fetchdata(isCancelled);
+    //clean up 
+     return()=>{
+      isCancelled=true;
+     }
 
     },[]);
     const startindex=(page-1)*PAGE_SIZE
