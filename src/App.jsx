@@ -5,7 +5,7 @@ import Countries from "./Countries";
 import Dog from "./Dog";
 import GithubNetwork from "./GithubNetwork";
 import { BrowserRouter,Routes, Route , Link} from "react-router-dom";
-
+import Rating from './Rating'
 
 const App = () => {
 
@@ -14,6 +14,7 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+<Rating/>
 <BrowserRouter>
 <nav>
         <ul>
