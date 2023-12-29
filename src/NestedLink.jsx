@@ -19,9 +19,15 @@ const NestedLinks = ({ links }) => {
         <React.Fragment key={category}>
           <div><span onClick={() => handleCategoryClick(category)}>{category}</span>:</div>
           {expandedCategories.includes(category) && (
-           <div> <ul> 
-              <NestedLinks links={subLinks} />
-            </ul></div>
+            <div>
+            {subLinks ? ( // Check if subLinks exist
+              <ul>
+                <NestedLinks links={subLinks} />
+              </ul>
+            ) : (
+              <p>No sublinks available</p> // Display a message if no sublinks
+            )}
+          </div>
           )}
         </React.Fragment>
       ))}

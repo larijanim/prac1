@@ -7,6 +7,7 @@ import GithubNetwork from "./GithubNetwork";
 import { BrowserRouter,Routes, Route , Link} from "react-router-dom";
 import Rating from './Rating';
 import NestedLinks from './NestedLink';
+import AppleText from "./AppleText";
 //import Gl from "./Gl";
 const App = () => {
 
@@ -35,6 +36,7 @@ return (
 
 <Rating/>
 <NestedLinks links={responseData} />
+<AppleText/>
 <BrowserRouter>
 <nav>
         <ul>
