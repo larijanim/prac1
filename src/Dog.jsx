@@ -12,7 +12,8 @@ const Dog=()=>{
         try{
             const response=await fetch('https://dog.ceo/api/breeds/list/all');
             if(!response.ok){
-                console.error('sdsds');}
+                console.error('sdsds');
+            }
                 const result=await response.json();
                 const breeds=await result.message;
 
@@ -67,8 +68,8 @@ const Dog=()=>{
         <select value={selectedOption} onChange={handleOptionChange}> 
         {data?.map((i,index)=>(<option key={index} value={i}>{i}</option>))}</select>
         <div>
-         {imgd!==null && imgd?.map((d,index) =>(<div key={index}>
-            {d?<img src={d}   onError={() =>setImgd(null)}/>:null}</div>)) } </div>
+         {imgd!==null && imgd?.map((dogimage,index) =>(<div key={index}>
+            {dogimage?<img src={dogimage}   onError={() =>setImgd(null)}/>:null}</div>)) } </div>
         </div>)
 }
 

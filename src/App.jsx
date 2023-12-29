@@ -5,16 +5,36 @@ import Countries from "./Countries";
 import Dog from "./Dog";
 import GithubNetwork from "./GithubNetwork";
 import { BrowserRouter,Routes, Route , Link} from "react-router-dom";
-import Rating from './Rating'
-
+import Rating from './Rating';
+import NestedLinks from './NestedLink';
+//import Gl from "./Gl";
 const App = () => {
+
+  const responseData = {
+    products: {
+      analytics: {
+        amazon_athena: {
+        amazon_cloudsearch: {},
+      },
+      blockchain: {},
+    },},
+    solutions: {
+      by_use_case: {},
+      by_industry: {},
+    },
+    pricing: {},
+    documentation: {},
+  };
+
 
 return (
 <div className="App">
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+
 <Rating/>
+<NestedLinks links={responseData} />
 <BrowserRouter>
 <nav>
         <ul>
