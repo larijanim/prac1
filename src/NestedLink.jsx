@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
 const NestedLinks = ({ links }) => {
   const [expandedCategories, setExpandedCategories] = useState([]);
-
+  NestedLinks.propTypes = {
+    links: PropTypes.object.isRequired, // Required object of links
+  };
   const handleCategoryClick = (category) => {
     setExpandedCategories(prevExpandedCategories => {
       if (prevExpandedCategories.includes(category)) {

@@ -6,26 +6,11 @@ import Dog from "./Dog";
 import GithubNetwork from "./GithubNetwork";
 import { BrowserRouter,Routes, Route , Link} from "react-router-dom";
 import Rating from './Rating';
-import NestedLinks from './NestedLink';
+import AmazonProducts from "./AmazonProducts";
 import AppleText from "./AppleText";
+import AwsServices from "./AwsServices";
 //import Gl from "./Gl";
 const App = () => {
-
-  const responseData = {
-    products: {
-      analytics: {
-        amazon_athena: {
-        amazon_cloudsearch: {},
-      },
-      blockchain: {},
-    },},
-    solutions: {
-      by_use_case: {},
-      by_industry: {},
-    },
-    pricing: {},
-    documentation: {},
-  };
 
 
 return (
@@ -33,10 +18,9 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
-
 <Rating/>
-<NestedLinks links={responseData} />
-<AppleText/>
+
+
 <BrowserRouter>
 <nav>
         <ul>
@@ -55,6 +39,9 @@ return (
           <li>
             <Link to="/git2">GitHub Network</Link>
           </li>
+          <li><Link to="/appleText">Apple Text</Link></li>
+          <li><Link to="/amazonproduct" >Amazon Products</Link></li>
+          <li><Link to="/aws">AWS Services</Link></li>
         </ul>
       </nav>
 <Routes>
@@ -62,6 +49,9 @@ return (
 <Route path="git1" element={<Github1/>}/>
 <Route path="countries" element={<Countries/>}/>
 <Route path="git2" element={<GithubNetwork/>}/>
+<Route path="appleText" element={<AppleText/>}/>
+<Route path="amazonproduct" element ={<AmazonProducts />}/>
+<Route path="aws" element={<AwsServices/>}/>
 
 
 
