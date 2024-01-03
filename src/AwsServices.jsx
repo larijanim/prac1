@@ -19,6 +19,14 @@ const AwsServices=()=>{
     },
     // More objects here...
     ]; 
+    const debouncex=(f,d)=>{
+        let timeoutid;
+        return (...arg)=>{
+          clearTimeout(timeoutid);
+          timeoutid=setTimeout(()=>{f.apply(this,arg)},d)
+        }
+    }
+    
 
     const CardItem = (z) => {  return <div style={{
         display: 'flex', /* Ensure card content is flex-aligned */
@@ -42,8 +50,11 @@ const AwsServices=()=>{
     
  
   },[filter]);
+
+  const debouncFilter=debouncex((newFilter)=>{setFilter(newFilter);},500);
  const filterHandler=(event)=>{
-    setFilter(event.target.value);
+   // debouncFilter(event.target.value);
+   setFilter(event.target.value);
     console.log(filter);
     const x=data.filter((item)=>item.title.toLowerCase().includes(filter.toLocaleLowerCase()))
     setAwsInfo(x);
