@@ -9,9 +9,17 @@ import Rating from './Rating';
 import AmazonProducts from "./AmazonProducts";
 import AppleText from "./AppleText";
 import AwsServices from "./AwsServices";
+import Counter from "./Counter";
+import ProgressBar from "./ProgressBar";
+import { useState } from 'react';
 //import Gl from "./Gl";
 const App = () => {
 
+  const [progressValue, setProgressValue] = useState(50); // Initial value
+
+  const handleSliderChange = (event) => {
+    setProgressValue(event.target.value); // Update state when slider changes
+  };
 
 return (
 <div className="App">
@@ -19,7 +27,18 @@ return (
 <h2>Practice</h2>
 </header>
 <Rating/>
-
+<label>
+        <div>Control progress</div>
+        <input
+          type="range"
+          min="0"
+          max="100"
+           value={progressValue} 
+           onChange={handleSliderChange}
+          id="slider" />
+      </label>
+         <ProgressBar value={progressValue}  />
+<Counter/>
 
 <BrowserRouter>
 <nav>
