@@ -13,6 +13,7 @@ import Counter from "./Counter";
 import ProgressBar from "./ProgressBar";
 import { useState } from 'react';
 import TransferList from "./TransferList";
+import TempConvertore from "./TempConvertore";
 //import Gl from "./Gl";
 const App = () => {
 
@@ -28,6 +29,7 @@ return (
 <h2>Practice</h2>
 </header>
 <Rating/>
+<TempConvertore/>
 <label>
         <div>Control progress</div>
         <input
