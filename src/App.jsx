@@ -12,6 +12,7 @@ import AwsServices from "./AwsServices";
 import Counter from "./Counter";
 import ProgressBar from "./ProgressBar";
 import { useState } from 'react';
+import TransferList from "./TransferList";
 //import Gl from "./Gl";
 const App = () => {
 
@@ -61,6 +62,7 @@ return (
           <li><Link to="/appleText">Apple Text</Link></li>
           <li><Link to="/amazonproduct" >Amazon Products</Link></li>
           <li><Link to="/aws">AWS Services</Link></li>
+          <li><Link to="/transferlist">Transfer List</Link></li>
         </ul>
       </nav>
 <Routes>
@@ -71,6 +73,7 @@ return (
 <Route path="appleText" element={<AppleText/>}/>
 <Route path="amazonproduct" element ={<AmazonProducts />}/>
 <Route path="aws" element={<AwsServices/>}/>
+<Route path="transferlist" element={<TransferList/>}/>
 
 
 
