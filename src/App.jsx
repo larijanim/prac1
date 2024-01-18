@@ -14,6 +14,7 @@ import ProgressBar from "./ProgressBar";
 import { useState } from 'react';
 import TransferList from "./TransferList";
 import TempConvertore from "./TempConvertore";
+import TabsWraper from "./TabsWraper";
 //import Gl from "./Gl";
 const App = () => {
 
@@ -28,6 +29,7 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+<TabsWraper/>
 <Rating/>
 <TempConvertore/>
 <label>
