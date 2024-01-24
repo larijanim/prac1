@@ -11,10 +11,13 @@ import AppleText from "./AppleText";
 import AwsServices from "./AwsServices";
 import Counter from "./Counter";
 import ProgressBar from "./ProgressBar";
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import TransferList from "./TransferList";
 import TempConvertore from "./TempConvertore";
-import TabsWraper from "./TabsWraper";
+import { lazy, Suspense } from 'react';
+
+//import Card from "./Card";
+const LazyCard = lazy(() => import('./Card'));
 //import Gl from "./Gl";
 const App = () => {
 
@@ -23,13 +26,27 @@ const App = () => {
   const handleSliderChange = (event) => {
     setProgressValue(event.target.value); // Update state when slider changes
   };
+  const [TabsWrapper, setTabsWrapper] = useState(null);
+/* example of dynamic */
+useEffect(() => {
+  const loadTabsWrapper = async () => {
+    // Import the TabsWrapper component dynamically
+    const module = await import('./TabsWrapper');
+    // Set the imported component to the state
+    setTabsWrapper(() => module.default);
+  };
+
+  // Call the dynamic import function
+  loadTabsWrapper();
+}, []);
+
 
 return (
 <div className="App">
 <header className="App-header">
 <h2>Practice</h2>
 </header>
-<TabsWraper/>
+{TabsWrapper ? <TabsWrapper /> : <p>Loading...</p>}
 <Rating/>
 <TempConvertore/>
 <label>
@@ -52,6 +69,9 @@ return (
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/card">Card</Link>
+          </li>
+          <li>
             <Link to="/dog">Dogs</Link>
           </li>
           <li>
@@ -69,19 +89,19 @@ return (
           <li><Link to="/transferlist">Transfer List</Link></li>
         </ul>
       </nav>
-<Routes>
-<Route path="dog" element={<Dog/>}/>
-<Route path="git1" element={<Github1/>}/>
-<Route path="countries" element={<Countries/>}/>
-<Route path="git2" element={<GithubNetwork/>}/>
-<Route path="appleText" element={<AppleText/>}/>
-<Route path="amazonproduct" element ={<AmazonProducts />}/>
-<Route path="aws" element={<AwsServices/>}/>
-<Route path="transferlist" element={<TransferList/>}/>
-
-
-
-</Routes>
+<Suspense fallback={<div>Loading...</div>}>
+  <Routes>
+  <Route path="card" element={<LazyCard />}/>
+  <Route path="dog" element={<Dog/>}/>
+  <Route path="git1" element={<Github1/>}/>
+  <Route path="countries" element={<Countries/>}/>
+  <Route path="git2" element={<GithubNetwork/>}/>
+  <Route path="appleText" element={<AppleText/>}/>
+  <Route path="amazonproduct" element ={<AmazonProducts />}/>
+  <Route path="aws" element={<AwsServices/>}/>
+  <Route path="transferlist" element={<TransferList/>}/>
+  </Routes>
+</Suspense>
 </BrowserRouter>
 
 </div>

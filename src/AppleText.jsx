@@ -1,5 +1,6 @@
 import { useState} from "react";
-const AppleText=()=>{const [countT,setCountT]=useState([''])
+const AppleText=()=>{
+    const [countT,setCountT]=useState([''])
 
 
 const handleChange=(event,index)=>{

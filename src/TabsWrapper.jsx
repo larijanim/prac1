@@ -2,7 +2,7 @@ import Tabs from './Tabs';
 
 import './App.css';
 
-export default function TabsWraper() {
+export default function TabsWrapper() {
   return (
     <div className="wrapper">
       <Tabs
