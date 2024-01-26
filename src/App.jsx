@@ -14,7 +14,9 @@ import ProgressBar from "./ProgressBar";
 import { useState , useEffect} from 'react';
 import TransferList from "./TransferList";
 import TempConvertore from "./TempConvertore";
+import Drawing from "./Drawing";
 import { lazy, Suspense } from 'react';
+import SearchD from './SearchD'
 
 //import Card from "./Card";
 const LazyCard = lazy(() => import('./Card'));
@@ -46,6 +48,8 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+<SearchD/>
+<Drawing/>
 {TabsWrapper ? <TabsWrapper /> : <p>Loading...</p>}
 <Rating/>
 <TempConvertore/>
