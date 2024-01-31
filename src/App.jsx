@@ -16,7 +16,8 @@ import TransferList from "./TransferList";
 import TempConvertore from "./TempConvertore";
 import Drawing from "./Drawing";
 import { lazy, Suspense } from 'react';
-import SearchD from './SearchD'
+import SearchD from './SearchD';
+import ContextAPISample from "./ContextAPISample";
 
 //import Card from "./Card";
 const LazyCard = lazy(() => import('./Card'));
@@ -48,6 +49,7 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+<ContextAPISample/>
 <SearchD/>
 <Drawing/>
 {TabsWrapper ? <TabsWrapper /> : <p>Loading...</p>}
