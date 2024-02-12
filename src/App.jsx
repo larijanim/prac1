@@ -18,6 +18,8 @@ import Drawing from "./Drawing";
 import { lazy, Suspense } from 'react';
 import SearchD from './SearchD';
 import ContextAPISample from "./ContextAPISample";
+import MyUseNavigate from "./MyUseNavigate";
+import { App2 } from "./walmart";
 
 //import Card from "./Card";
 const LazyCard = lazy(() => import('./Card'));
@@ -49,12 +51,15 @@ return (
 <header className="App-header">
 <h2>Practice</h2>
 </header>
+<App2/>
 <ContextAPISample/>
+
 <SearchD/>
 <Drawing/>
 {TabsWrapper ? <TabsWrapper /> : <p>Loading...</p>}
 <Rating/>
 <TempConvertore/>
+
 <label>
         <div>Control progress</div>
         <input
@@ -67,8 +72,8 @@ return (
       </label>
          <ProgressBar value={progressValue}  />
 <Counter/>
-
 <BrowserRouter>
+
 <nav>
         <ul>
           <li>
@@ -95,6 +100,7 @@ return (
           <li><Link to="/transferlist">Transfer List</Link></li>
         </ul>
       </nav>
+     
 <Suspense fallback={<div>Loading...</div>}>
   <Routes>
   <Route path="card" element={<LazyCard />}/>
@@ -106,6 +112,7 @@ return (
   <Route path="amazonproduct" element ={<AmazonProducts />}/>
   <Route path="aws" element={<AwsServices/>}/>
   <Route path="transferlist" element={<TransferList/>}/>
+  <Route path="/" element={<MyUseNavigate />} />
   </Routes>
 </Suspense>
 </BrowserRouter>
